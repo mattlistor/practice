@@ -4,37 +4,37 @@ import './App.css';
 
 class App extends React.Component  {
   state = {
-    message: 0
+    index: 0,
+    messages: ["Splish Splash", "I was taking a bath", "Cheese and quackers"]
   }
 
-  messages = () => {
-    return ["Splish Splash", "I was taking a bath"]
-}
-
-  change = () => {
-    if(this.state.message === 0) {
-      this.setState({
-        message: 1
-      })
+  change = (e) => {
+    e.preventDefault()
+    console.log("change")
+    let newIndex = this.state.index + 1
+    if(newIndex === this.state.messages.length) {
+      this.setState({ index: 0 })
     }
-    if(this.state.message === 1) {
-      this.setState({
-        message: 0
-      })
+    else { 
+      this.setState({ index: newIndex })
     }
   }
   
   componentDidMount() {
-    console.log("turtle")
+    console.log("mount")
+  }
+
+  componentDidUpdate() {
+    console.log("update: ", this.state.index)
   }
 
   render(){
-    console.log(this.state)
+    console.log("render")
     return (
       <div className="App">
         <img src={duck} className="duck" alt="duck" />
-        <h1 className="header">{this.messages()[this.state.message]}</h1>
-        <div className="play" onClick={() => this.change()}>Play</div>
+        <h1 className="header">{this.state.messages[this.state.index]}</h1>
+        <div className="button" onContextMenu={(e) => this.change(e)} onClick={(e) => this.change(e)}>Change</div>
       </div>
     );
   } 
