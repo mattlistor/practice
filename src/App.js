@@ -8,7 +8,6 @@ class App extends React.Component  {
   state = {
     index: 0,
     messages: ["Splish Splash", "I was taking a bath", "Cheese and quackers"],
-    value: "",
     filterText: "",
     list:[]
   }
@@ -19,7 +18,6 @@ class App extends React.Component  {
 
   change = (e) => {
     e.preventDefault()
-    // console.log("change")
     let newIndex = this.state.index + 1
     if(newIndex === this.state.messages.length) {
       this.setState({ index: 0 })
@@ -31,17 +29,15 @@ class App extends React.Component  {
 
   sort = (e) => {
     this.setState({ list: this.state.list.sort() })
-    this.createListHTML()
   }
   
   componentDidMount() {
     fetch('https://jsonplaceholder.typicode.com/todos')
     .then(response => response.json())
     .then(array => { 
-      let newArray = array.slice(0,5).map(user => { return user.title })
+      let newArray = array.slice(0,15).map(user => { return user.title })
       this.setState({ list: newArray })
     })
-    // .then(console.log("mount"))
   }
 
   handleSubmit = (list) => {
@@ -52,12 +48,14 @@ class App extends React.Component  {
     
     return (
       <div className="App">
-        {/* <img src={duck} className="duck" alt="duck" />
-        <h1 className="header">{this.state.messages[this.state.index]}</h1>
-        <div className="button" onContextMenu={(e) => this.change(e)} onClick={(e) => this.change(e)}>Change</div> */}
-        <Search filterText={this.state.filterText} filterUpdate={this.filterUpdate} />
-        <List list={this.state.list} filterText={this.state.filterText} handleSubmit={this.handleSubmit} />  
-        <div className="button" onContextMenu={(e) => this.sort(e)} onClick={(e) => this.sort(e)}>Sort</div>  
+        <div className ="container">
+          <img src={duck} className="duck" alt="duck"/>
+          {/* <h1 className="header">{this.state.messages[this.state.index]}</h1> */}
+          {/* <div className="button" onContextMenu={(e) => this.change(e)} onClick={(e) => this.change(e)}>Change</div> */}
+          <Search filterText={this.state.filterText} filterUpdate={this.filterUpdate} />
+          <List list={this.state.list} filterText={this.state.filterText} handleSubmit={this.handleSubmit} />  
+          <div className="button" id="sort" onContextMenu={(e) => this.sort(e)} onClick={(e) => this.sort(e)}>Sort</div>  
+        </div>
      </div>
     );
   } 

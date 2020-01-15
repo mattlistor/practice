@@ -23,8 +23,9 @@ class List extends React.Component  {
   handleSubmit = (e) => {
     e.preventDefault();
     let newList = this.props.list
-    newList.push(this.state.value.toString())
-    e.target.value = 0
+    if(this.state.value.toString() !== ""){
+      newList.push(this.state.value.toString())
+    }
     this.props.handleSubmit(newList)
   }
 
@@ -41,18 +42,18 @@ class List extends React.Component  {
       })
 
     return (    
-      <>   
+      <div className="List">   
         <ul id="userContainer">
             {listHTML}
         </ul>
         <br></br>
-        <form onSubmit={(e) => this.handleSubmit(e)}>
+        <form className="addForm" onSubmit={(e) => this.handleSubmit(e)}>
           <label>
-            <input type="text" value={this.state.value} onChange={(e) => this.handleChange(e)} />
+            <input className="addInput" placeholder="Add more..." type="text" value={this.state.value} onChange={(e) => this.handleChange(e)} />
           </label>
-          <input type="submit" value="Add" />
+          <input className="button" type="submit" value="Add" />
         </form>
-      </>
+      </div>
     );
   } 
 }
