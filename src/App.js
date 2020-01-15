@@ -10,7 +10,7 @@ class App extends React.Component  {
 
   change = (e) => {
     e.preventDefault()
-    console.log("change")
+    // console.log("change")
     let newIndex = this.state.index + 1
     if(newIndex === this.state.messages.length) {
       this.setState({ index: 0 })
@@ -21,20 +21,35 @@ class App extends React.Component  {
   }
   
   componentDidMount() {
+    const userContainer = document.getElementById('userContainer')
+
+    fetch('https://jsonplaceholder.typicode.com/todos')
+    .then(response => response.json())
+    .then(array => {
+      const userHTML = array.map(user => {
+        return `<p>${user.title}</p>`
+      })
+      console.log(userHTML.toString())
+      userContainer.innerHTML = userHTML.join("")
+    })
+
     console.log("mount")
   }
 
   componentDidUpdate() {
-    console.log("update: ", this.state.index)
+    // console.log("update: ", this.state.index)
   }
 
   render(){
-    console.log("render")
+    // console.log("render")
     return (
       <div className="App">
         <img src={duck} className="duck" alt="duck" />
         <h1 className="header">{this.state.messages[this.state.index]}</h1>
         <div className="button" onContextMenu={(e) => this.change(e)} onClick={(e) => this.change(e)}>Change</div>
+        <div id="userContainer">
+
+        </div>
       </div>
     );
   } 
