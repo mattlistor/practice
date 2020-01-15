@@ -2,25 +2,53 @@
   font-family: "Visitor"
 }
 
+@font-face {
+	font-family: 'Visitor';
+	src: 
+		local('Visitor'),
+		url('./visitor/visitor1.ttf') 
+		format('truetype');
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #2659bf;
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+}
+
 .duck {
   height: 75px;
   margin-bottom: 50px;
-  animation: Float infinite 1s;
+  /* animation: Float infinite 1s; */
 }
 
 .App {
-  background-color: #2659bf;
-  min-height: 85vh;
-  min-width: 100vh;
+  /* background-color: #2659bf; */
+  /* min-height: 85vh;
+  min-width: 100vh; */
+  /* min-height: 100%;
+  max-width: 100%; */
+  width: 100%;
+  min-height: 100vh;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  padding-top: 15vh;
+  /* padding-top: 15vh; */
+}
+
+.container{
+  width:700px;
+  height: 700px;
+  /* margin: 0px auto 0px auto; */
 }
 
 .header {
-  margin-bottom: 8vh;
-  margin-top: 8vh;
+  /* margin-bottom: 8vh; */
+  margin-top: 0;
   font-size: 75px;
   text-align: center;
   animation: FadeIn 1s;
@@ -51,10 +79,6 @@ input.button {
   background-color: rgb(250, 215, 109);
 }
 
-.container{
-  width:700px;
-  height: 700px;
-}
 .filterInput{
   background-color:white;
   font-size: 30px;
@@ -84,8 +108,10 @@ ul#userContainer{
   height:300px;
   overflow-y: auto;
   font-size: 25px;
-  padding: 0px 0px 0px 30px;
-  border-bottom: 2px solid white
+  padding: 20px 0px 0px 40px;
+  border-bottom: 2px solid white;
+  box-shadow: inset 0 0 5px 0 rgba(44,61,59,.7);
+
 }
 
 /* width */

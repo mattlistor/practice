@@ -7,14 +7,6 @@ class List extends React.Component  {
     value: ""
   }
 
-  // createListHTML = () => {
-  //   const userContainer = document.getElementById('userContainer')
-  //   const userHTML = this.state.list.map(user => {
-  //     return `<li>${user}</li>`
-  //   })
-  //   userContainer.innerHTML = userHTML.join("")
-  // }
-
   handleChange = (e) => {
     e.preventDefault()
     this.setState({value: e.target.value});
