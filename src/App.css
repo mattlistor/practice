@@ -43,6 +43,20 @@
   background-color: rgb(250, 215, 109);
 }
 
+.filterInput{
+  font-family: 'Visitor';
+  background-color:white;
+  font-size: 30px;
+  
+  
+  /* text-align: start; */
+  cursor: text;
+  margin: 0em;
+  
+  padding: 10px;
+  border: none;
+}
+
 @keyframes Float {
   0% {
 		transform: translatey(0px);
