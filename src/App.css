@@ -93,16 +93,29 @@ input.button {
   padding: 10px;
   border: none;
   outline: none;
+  width:500px;
 }
 
 ul#userContainer{
   height:300px;
   overflow-y: auto;
   font-size: 25px;
-  padding: 20px 0px 0px 40px;
+  padding: 20px 20px 20px 20px;
   border-bottom: 2px solid white;
   box-shadow: inset 0 0 5px 0 rgba(44,61,59,.7);
+}
 
+.delete{
+  cursor: pointer;
+  font-size: 15px;
+  margin-right: 15px;
+}
+
+.listItem{
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
 /* width */

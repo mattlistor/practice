@@ -26,11 +26,11 @@ class List extends React.Component  {
     const filterText = this.props.filterText 
 
     const listHTML = this.props.list
-      .filter(i => {
-        return i.indexOf(filterText) >= 0
+      .filter(task => {
+        return task.indexOf(filterText) >= 0
       })
-      .map(i => {
-        return <li>{i}</li>
+      .map(task => {
+        return <div className="listItem"><span className="delete" onClick={() => this.props.delete()}>X</span> {task}</div>
       })
 
     return (    
@@ -40,10 +40,8 @@ class List extends React.Component  {
         </ul>
         <br></br>
         <form className="addForm" onSubmit={(e) => this.handleSubmit(e)}>
-          <label>
-            <input className="addInput" placeholder="Add more..." type="text" value={this.state.value} onChange={(e) => this.handleChange(e)} />
-          </label>
-          // <input className="button" type="submit" value="Add" />
+          <input className="addInput" placeholder="Add more tasks..." type="text" value={this.state.value} onChange={(e) => this.handleChange(e)} />
+          <input className="button" type="submit" value="Add" />
         </form>
       </div>
     );
