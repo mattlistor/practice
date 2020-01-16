@@ -41,7 +41,7 @@ class App extends React.Component  {
     const newList = this.state.list
     newList.splice(index, 1)
     this.setState({ list: newList })
-    this.openModal(`Completed ${task}`)
+    // this.openModal(`Completed ${task}`)
   }
 
   openModal = (message) => {

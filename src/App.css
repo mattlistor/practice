@@ -15,6 +15,7 @@ body {
   width: 100%;
   height: 100%;
   background-color: #2659bf;
+  color:rgb(33, 33, 33);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -51,7 +52,6 @@ body {
   width:150px;
   margin: 0;
   padding:10px;
-  color: black;
   background-color: #5080e1;
   outline: none;
 }
@@ -97,18 +97,24 @@ input.button {
 }
 
 ul#userContainer{
+  background-color: #5080e1;
   height:300px;
   overflow-y: auto;
   font-size: 25px;
   padding: 20px 20px 20px 20px;
   border-bottom: 2px solid white;
-  box-shadow: inset 0 0 5px 0 rgba(44,61,59,.7);
+  /* box-shadow: inset 0 0 5px 0 rgba(44,61,59,.7); */
 }
 
 .delete{
+  color:rgb(50, 50, 50);
   cursor: pointer;
   font-size: 15px;
   margin-right: 15px;
+}
+
+.delete:hover{
+  color: #FFCC33;
 }
 
 .listItem{
@@ -116,6 +122,10 @@ ul#userContainer{
   flex-direction: row;
   align-items: center;
   margin-bottom: 10px;
+}
+
+.listItemWhenEmpty{
+ color:rgb(34, 34, 34);
 }
 
 .Modal {
@@ -147,7 +157,7 @@ ul#userContainer{
 
 .close:hover,
 .close:focus {
-  color: white;
+  color: #FFCC33;
   text-decoration: none;
   cursor: pointer;
 }
@@ -159,12 +169,12 @@ ul#userContainer{
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #2659bf; 
+  background: #5080e1; 
 }
  
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #1d4491; 
+  background: rgb(29, 77, 174); 
 }
 
 /* Handle on hover */

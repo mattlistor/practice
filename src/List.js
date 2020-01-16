@@ -36,9 +36,14 @@ class List extends React.Component  {
 
     return (    
       <div className="List">   
-        <ul id="userContainer">
-            {listHTML}
-        </ul>
+            {listHTML.length === 0 ?
+            <ul id="userContainer">
+              <div className="listItemWhenEmpty">You have no tasks...</div>
+            </ul>
+            :
+            <ul id="userContainer">
+              {listHTML}
+            </ul>}
         <br></br>
         <form className="addForm" onSubmit={(e) => this.handleSubmit(e)}>
           <input className="addInput" placeholder="Add more tasks..." type="text" value={this.state.value} onChange={(e) => this.handleChange(e)} />
