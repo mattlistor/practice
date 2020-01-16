@@ -43,7 +43,7 @@ class List extends React.Component  {
           <label>
             <input className="addInput" placeholder="Add more..." type="text" value={this.state.value} onChange={(e) => this.handleChange(e)} />
           </label>
-          <input className="button" type="submit" value="Add" />
+          // <input className="button" type="submit" value="Add" />
         </form>
       </div>
     );

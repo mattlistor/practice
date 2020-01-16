@@ -36,8 +36,9 @@ class App extends React.Component  {
     .then(response => response.json())
     .then(array => { 
       let newArray = array.slice(0,15).map(user => { return user.title })
-      this.setState({ list: newArray })
+      // this.setState({ list: newArray })
     })
+    this.setState({ list: [] })
   }
 
   handleSubmit = (list) => {
@@ -49,7 +50,7 @@ class App extends React.Component  {
       <div className="App">
         <div className ="container">
           {/* <img src={duck} className="duck" alt="duck"/> */}
-          <h1 className="header">{this.state.messages[this.state.index]}</h1>
+          <h1 className="header">To-Do List</h1>
           {/* <div className="button" onContextMenu={(e) => this.change(e)} onClick={(e) => this.change(e)}>Change</div> */}
           <Search filterText={this.state.filterText} filterUpdate={this.filterUpdate} />
           <List list={this.state.list} filterText={this.state.filterText} handleSubmit={this.handleSubmit} />  
