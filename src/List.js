@@ -24,7 +24,6 @@ class List extends React.Component  {
   }
 
   render(){
-
     const filterText = this.props.filterText 
 
     const listHTML = this.props.list

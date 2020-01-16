@@ -10,7 +10,8 @@ class App extends React.Component  {
   state = {
     filterText: "",
     list: ["A", "B", "C"],
-    modal: true
+    modal: false,
+    message: ""
   }
 
   filterUpdate = (e) => {
@@ -39,25 +40,28 @@ class App extends React.Component  {
     console.log(task, index)
     const newList = this.state.list
     newList.splice(index, 1)
-
-    console.log(newList)
     this.setState({ list: newList })
+    this.openModal(`Completed ${task}`)
+  }
 
-    this.setState({ modal: true })
+  openModal = (message) => {
+    this.setState({ modal: true, message: message })
+  }
 
+  closeModal = () => {
+    this.setState({ modal: false, message: ""})
   }
 
   render(){
     return (
       <div className="App">
         <div className ="container">
-          {/* <img src={duck} className="duck" alt="duck"/> */}
           <h1 className="header">To-Do List</h1>
           <Search filterText={this.state.filterText} filterUpdate={this.filterUpdate} />
           <List list={this.state.list} delete={this.delete} filterText={this.state.filterText} handleSubmit={this.handleSubmit} />  
           {/* <div className="button" id="sort" onContextMenu={(e) => this.sort(e)} onClick={(e) => this.sort(e)}>Sort</div>   */}
         </div>
-        { this.state.modal ? <Modal /> : <></> }
+        { this.state.modal ? <Modal message={this.state.message} closeModal={this.closeModal}/> : <></> }
      </div>
     );
   } 
