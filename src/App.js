@@ -1,5 +1,7 @@
 import React from 'react';
 import List from './List.js'
+import Modal from './Modal.js'
+
 import Search from './Search.js'
 import duck from './duck.png';
 import './App.css';
@@ -7,7 +9,8 @@ import './App.css';
 class App extends React.Component  {
   state = {
     filterText: "",
-    list: ["A", "B", "C"]
+    list: ["A", "B", "C"],
+    modal: true
   }
 
   filterUpdate = (e) => {
@@ -32,8 +35,16 @@ class App extends React.Component  {
     this.setState({ list: list });
   }
 
-  delete = (index) => {
-    console.log(index)
+  delete = (task, index) => {
+    console.log(task, index)
+    const newList = this.state.list
+    newList.splice(index, 1)
+
+    console.log(newList)
+    this.setState({ list: newList })
+
+    this.setState({ modal: true })
+
   }
 
   render(){
@@ -42,11 +53,11 @@ class App extends React.Component  {
         <div className ="container">
           {/* <img src={duck} className="duck" alt="duck"/> */}
           <h1 className="header">To-Do List</h1>
-          {/* <div className="button" onContextMenu={(e) => this.change(e)} onClick={(e) => this.change(e)}>Change</div> */}
           <Search filterText={this.state.filterText} filterUpdate={this.filterUpdate} />
           <List list={this.state.list} delete={this.delete} filterText={this.state.filterText} handleSubmit={this.handleSubmit} />  
-          <div className="button" id="sort" onContextMenu={(e) => this.sort(e)} onClick={(e) => this.sort(e)}>Sort</div>  
+          {/* <div className="button" id="sort" onContextMenu={(e) => this.sort(e)} onClick={(e) => this.sort(e)}>Sort</div>   */}
         </div>
+        { this.state.modal ? <Modal /> : <></> }
      </div>
     );
   } 

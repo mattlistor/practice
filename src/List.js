@@ -19,6 +19,8 @@ class List extends React.Component  {
       newList.push(this.state.value.toString())
     }
     this.props.handleSubmit(newList)
+
+    this.setState({ value: "" })
   }
 
   render(){
@@ -29,8 +31,8 @@ class List extends React.Component  {
       .filter(task => {
         return task.indexOf(filterText) >= 0
       })
-      .map(task => {
-        return <div className="listItem"><span className="delete" onClick={() => this.props.delete()}>X</span> {task}</div>
+      .map((task, index) => {
+        return <div className="listItem" key={index}><span className="delete" onClick={() => this.props.delete(task, index)}>X</span> {task}</div>
       })
 
     return (    
