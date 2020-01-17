@@ -131,8 +131,9 @@ ul#userContainer{
 .Modal {
   background-color: white;
   position: absolute;
-  width: 300px;
-  height: 250px;
+  padding:75px;
+  /* width: 400px;
+  height: 400px; */
   display:flex;
   flex-direction: column;
   justify-content: center;
@@ -155,11 +156,21 @@ ul#userContainer{
   right: 10px;
 }
 
+.message {
+  overflow-wrap: break-word;
+  width: 300px;
+  text-align: center;
+}
+
 .close:hover,
 .close:focus {
   color: #FFCC33;
   text-decoration: none;
   cursor: pointer;
+}
+
+.complete {
+  color:rgb(23, 165, 23);
 }
 
 /* width */

@@ -12,7 +12,7 @@ class Modal extends React.Component  {
       <div className="Modal" onClick={() => this.props.closeModal()}> 
       <div class="close" onClick={() => this.props.closeModal()}>X</div>
         <img src={duck} className="duck" alt="duck"/>
-        <div>{this.props.message}</div>
+        <div className="message"><span className="complete">Complete</span><br></br>{this.props.message}</div>
       </div>
       </>
     );

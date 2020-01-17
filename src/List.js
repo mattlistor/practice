@@ -15,7 +15,7 @@ class List extends React.Component  {
   handleSubmit = (e) => {
     e.preventDefault();
     let newList = this.props.list
-    if(this.state.value.toString() !== ""){
+    if(this.state.value.toString().trim() !== ""){
       newList.push(this.state.value.toString())
     }
     this.props.handleSubmit(newList)
