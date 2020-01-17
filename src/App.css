@@ -118,7 +118,7 @@ ul#userContainer{
 }
 
 .listItem{
-  display:flex;
+  display: flex;
   flex-direction: row;
   align-items: center;
   margin-bottom: 10px;
@@ -132,8 +132,6 @@ ul#userContainer{
   background-color: white;
   position: absolute;
   padding:75px;
-  /* width: 400px;
-  height: 400px; */
   display:flex;
   flex-direction: column;
   justify-content: center;
@@ -171,6 +169,7 @@ ul#userContainer{
 
 .complete {
   color:rgb(23, 165, 23);
+  /* margin-bottom: 5px; */
 }
 
 /* width */
